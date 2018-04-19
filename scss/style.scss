@@ -1,0 +1,36 @@
+@import "mixins";
+
+body, p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    #calculator {
+        background: rgb(184, 179, 118);
+        padding: 1.3em;
+        border-radius: 1em;
+        @include border;
+    }
+    .output {
+        padding: 0.5em;
+        margin: 0.5em 0;   
+        text-align: right;
+        background: rgb(67, 114, 67);
+    }
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.5em;
+    button {
+        padding: 1em;
+        @include border;
+    }
+}
