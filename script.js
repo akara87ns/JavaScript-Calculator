@@ -17,9 +17,8 @@ document.getElementById("clear").addEventListener("click", function() {
     results.value = "";
 });
 
-let equalsOperation;
 document.getElementById("equals").addEventListener("click", function() {
-    equalsOperation = eval(results.value);
+    let equalsOperation = eval(results.value);
     results.value = equalsOperation;
     // console.log(results.value);
 });
