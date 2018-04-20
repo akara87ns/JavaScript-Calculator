@@ -4,3 +4,7 @@
     border-left: 4px solid rgb(143, 142, 142);
     border-top: 4px solid rgb(199, 197, 197);
 }
+
+@mixin shadow ($blur) {
+    box-shadow: 0px 0px $blur rgb(80, 79, 79);
+}

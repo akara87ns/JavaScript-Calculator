@@ -16,12 +16,20 @@ body, p {
         padding: 1.3em;
         border-radius: 1em;
         @include border;
+        @include shadow(5px);
     }
     .output {
         padding: 0.5em;
         margin: 0.5em 0;   
         text-align: right;
         background: rgb(67, 114, 67);
+    }
+    #calculations {
+        font-size: 0.7em;
+    }
+
+    #results {
+        font-size: 1.2em;
     }
 }
 
@@ -32,5 +40,11 @@ body, p {
     button {
         padding: 1em;
         @include border;
+        @include shadow(2px);
+        position: relative;
+        &:active {
+            top: 2px;
+            background-color: rgb(201, 200, 200);
+        }
     }
 }

@@ -15,12 +15,17 @@ body, p {
     border-right: 4px solid #4d4c4c;
     border-bottom: 4px solid #302f2f;
     border-left: 4px solid #8f8e8e;
-    border-top: 4px solid #c7c5c5; }
+    border-top: 4px solid #c7c5c5;
+    box-shadow: 0px 0px 5px #504f4f; }
   .container .output {
     padding: 0.5em;
     margin: 0.5em 0;
     text-align: right;
     background: #437243; }
+  .container #calculations {
+    font-size: 0.7em; }
+  .container #results {
+    font-size: 1.2em; }
 
 #buttons {
   display: grid;
@@ -31,6 +36,11 @@ body, p {
     border-right: 4px solid #4d4c4c;
     border-bottom: 4px solid #302f2f;
     border-left: 4px solid #8f8e8e;
-    border-top: 4px solid #c7c5c5; }
+    border-top: 4px solid #c7c5c5;
+    box-shadow: 0px 0px 2px #504f4f;
+    position: relative; }
+    #buttons button:active {
+      top: 2px;
+      background-color: #c9c8c8; }
 
 /*# sourceMappingURL=style.css.map */
