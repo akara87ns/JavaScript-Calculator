@@ -21,13 +21,18 @@ body, p {
     .output {
         padding: 0.5em;
         margin: 0.5em 0;   
-        text-align: right;
         background: rgb(67, 114, 67);
+    }
+    input {
+        border: none;
+        display: block;
+        width: 100%;
+        text-align: right;
+        background: transparent;
     }
     #calculations {
         font-size: 0.7em;
     }
-
     #results {
         font-size: 1.2em;
     }

@@ -20,8 +20,13 @@ body, p {
   .container .output {
     padding: 0.5em;
     margin: 0.5em 0;
-    text-align: right;
     background: #437243; }
+  .container input {
+    border: none;
+    display: block;
+    width: 100%;
+    text-align: right;
+    background: transparent; }
   .container #calculations {
     font-size: 0.7em; }
   .container #results {
