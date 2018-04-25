@@ -1,11 +1,13 @@
 let results = document.getElementById("results");
+let calculations = document.getElementById("calculations");
 
 window.onload = function() {
     results.value = "";
+    calculations.value = "";
 }
 
-let buttons = document.querySelectorAll("button");
-console.log(buttons);
+let buttons = document.getElementsByClassName("nums&ops");
+// console.log(buttons);
 
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function() {
@@ -30,66 +32,44 @@ for (let i = 0; i < buttons.length; i++) {
                 results.value = results.value.slice(0,-1);
             }
         }
+
         if (equalRes === true) {
-            console.log("Now it is true");
-            let lastNum = lastChar;
-            console.log(lastNum);
-            if (lastNum >= 0 && lastNum <= 9) {
-                results.value = lastNum;
+            if (lastChar >= 0 && lastChar <= 9) {
+                results.value = lastChar;
                 equalRes = false;
+                calculations.value = "";
                 return equalRes;
-            } else if (lastNum === "+" || lastNum === "-" || lastNum === "*" || lastNum === "/" || lastNum === ".") {
-                // results.value += lastNum;
+            } else if (lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === "/" || lastChar === ".") {
                 equalRes = false;
+                calculations.value = "";
                 return equalRes;
             }
         }
+
+        calcOperations = results.value;
+        // console.log(calcOperations);
     });
 }
 
 document.getElementById("clear").addEventListener("click", function() {
     results.value = "";
+    calculations.value = "";
 });
 
 document.getElementById("delete").addEventListener("click", function() {
     results.value = results.value.slice(0, -1);
 });
 
-// let equal = false;
 let equalRes = false;
 document.getElementById("equals").addEventListener("click", function() {
     let equalsOperation = eval(results.value);
+    // let equalsOperation = parseFloat(eval(results.value)).toFixed(2);
     results.value = equalsOperation;
 
+    calculations.value = calcOperations;
+
     equalRes = true;
-    console.log("Now it's false");
-    // console.log(results.value);
     return equalRes;
-    
-    // console.log(equalsOperation);
-    
-
-    // if (equalsOperation != results.value) {
-    //     console.log("not equal");
-    // } else {
-    //     console.log("equal");
-    // }
-
-    // equal = true;
-    // return equal;
-
-    // let equals = true;
-
-    // if (equals === true && this.lastChar >= 0) {
-    //     console.log("not a number");
-    //     let equals = false;
-    //     console.log(equalsOperation);
-    // } else {
-    //     console.log("number");
-    //     let equals = false;
-    //     console.log(equalsOperation);
-    // }
 });
-// console.log(equal);
 
 
