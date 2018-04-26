@@ -33,11 +33,7 @@ for (let i = 0; i < buttons.length; i++) {
             }
         }
 
-        // if (lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === "/" && oneBeforeLastChar === "+" || oneBeforeLastChar === "-" || oneBeforeLastChar === "*" || oneBeforeLastChar === "/"  ) {
-        //     results.value = results.value.slice(0, -1);
-        // }
-
-        //Changing arithmetic sign to the last one that was clicked
+        //Changing adjacent arithmetic sign to the last one that was clicked
         if (oneBeforeLastChar === "+" || oneBeforeLastChar === "-" || oneBeforeLastChar === "*" || oneBeforeLastChar === "/") {
             if (lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === "/") {
                 if (oneBeforeLastChar !== lastChar) {
@@ -45,10 +41,6 @@ for (let i = 0; i < buttons.length; i++) {
                 }
             }
         }
-
-        // if (oneBeforeLastChar === "+" && lastChar === "-") {
-        //     results.value = results.value.slice(0, -2) + results.value.slice(-1);
-        // }
 
         //Resetting results if a number is clicked or continuing if an operation button is clicked
         if (equalRes === true) {
@@ -63,7 +55,6 @@ for (let i = 0; i < buttons.length; i++) {
                 return equalRes;
             }
         }
-
         calcOperations = results.value;
     });
 }
@@ -83,6 +74,7 @@ document.getElementById("equals").addEventListener("click", function equalsFunct
     // let equalsOperation = parseFloat(eval(results.value)).toFixed(2);
     results.value = equalsOperation;
 
+    //If a user decides to devide with zero
     if (results.value === "NaN" || results.value === "Infinity") {
         results.value = "Operation not allowed";
     }
@@ -92,12 +84,3 @@ document.getElementById("equals").addEventListener("click", function equalsFunct
     equalRes = true;
     return equalRes;
 });
-
-try {
-    equalsFunction();
-}
-catch(err) {
-    console.log("Error has occured");
-}
-
-
