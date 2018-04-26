@@ -7,7 +7,6 @@ window.onload = function() {
 }
 
 let buttons = document.getElementsByClassName("nums&ops");
-// console.log(buttons);
 
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function() {
@@ -16,6 +15,7 @@ for (let i = 0; i < buttons.length; i++) {
         let lastChar = results.value.substr((results.value.length-1), 1);
         let oneBeforeLastChar = results.value.substr((results.value.length-2), 1);
 
+        //Disabling input of two or more same adjacent operation signs 
         if (lastChar === oneBeforeLastChar) {
             if (lastChar === "+") {
                 results.value = results.value.slice(0,-1);
@@ -33,6 +33,24 @@ for (let i = 0; i < buttons.length; i++) {
             }
         }
 
+        // if (lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === "/" && oneBeforeLastChar === "+" || oneBeforeLastChar === "-" || oneBeforeLastChar === "*" || oneBeforeLastChar === "/"  ) {
+        //     results.value = results.value.slice(0, -1);
+        // }
+
+        //Changing arithmetic sign to the last one that was clicked
+        if (oneBeforeLastChar === "+" || oneBeforeLastChar === "-" || oneBeforeLastChar === "*" || oneBeforeLastChar === "/") {
+            if (lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === "/") {
+                if (oneBeforeLastChar !== lastChar) {
+                    results.value = results.value.slice(0, -2) + results.value.slice(-1);
+                }
+            }
+        }
+
+        // if (oneBeforeLastChar === "+" && lastChar === "-") {
+        //     results.value = results.value.slice(0, -2) + results.value.slice(-1);
+        // }
+
+        //Resetting results if a number is clicked or continuing if an operation button is clicked
         if (equalRes === true) {
             if (lastChar >= 0 && lastChar <= 9) {
                 results.value = lastChar;
@@ -47,7 +65,6 @@ for (let i = 0; i < buttons.length; i++) {
         }
 
         calcOperations = results.value;
-        // console.log(calcOperations);
     });
 }
 
@@ -66,7 +83,11 @@ document.getElementById("equals").addEventListener("click", function() {
     // let equalsOperation = parseFloat(eval(results.value)).toFixed(2);
     results.value = equalsOperation;
 
-    calculations.value = calcOperations;
+    if (results.value === "NaN" || results.value === "Infinity") {
+        results.value = "Operation not allowed";
+    }
+
+    calculations.value = calcOperations + "=";
 
     equalRes = true;
     return equalRes;
