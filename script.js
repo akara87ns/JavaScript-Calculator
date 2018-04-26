@@ -78,7 +78,7 @@ document.getElementById("delete").addEventListener("click", function() {
 });
 
 let equalRes = false;
-document.getElementById("equals").addEventListener("click", function() {
+document.getElementById("equals").addEventListener("click", function equalsFunction() {
     let equalsOperation = eval(results.value);
     // let equalsOperation = parseFloat(eval(results.value)).toFixed(2);
     results.value = equalsOperation;
@@ -92,5 +92,12 @@ document.getElementById("equals").addEventListener("click", function() {
     equalRes = true;
     return equalRes;
 });
+
+try {
+    equalsFunction();
+}
+catch(err) {
+    console.log("Error has occured");
+}
 
 
